@@ -22,12 +22,10 @@ int main(int argc, char** argv) {
 
     /* Define them with the language as follows */
     mpca_lang(MPCA_LANG_DEFAULT, 
-            "\
-                number      : /-?[0-9]+/;\
-                operator    : '+' | '/' | '*' | '-';\
-                expression  : <number> | '(' <operator> <expression>+ ')';\
-                lispy        : /^/ <operator> <expression> /$/;\
-            ", Number, Operator, Expression, Lispy);
+            " number      : /-?[0-9]+/ ; "
+             " operator    : '+' | '/' | '*' | '-' ; "
+             " expression  : <number> | '(' <operator> <expression>+ ')' ; "
+             " lispy        : /^/ <operator>* <expression> /$/ ; ", Number, Operator, Expression, Lispy);
     char *line = NULL;
 
     while((line = linenoise("Lispy> ")) != NULL ) {
@@ -50,3 +48,8 @@ int main(int argc, char** argv) {
     return 0;
    
 }
+
+/* 
+ * Try this expression:
+ * Lispy> (* ( - 6 7 ) 8 )
+ * /
