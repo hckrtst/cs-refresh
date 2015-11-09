@@ -11,14 +11,46 @@
 // if we link this with another module
 static char input_buf[INPUT_BUFFER_LEN];
 
+#define NDEBUG 1
+
+#define dbg(fmt, ...) \
+    do { if (NDEBUG) fprintf(stdout, fmt, __VA_ARGS__); } while(0); 
+
+
+long eval_op(long x, const char* operator, long y) {
+    if (strcmp(operator, "+") == 0) return (x + y);
+    if (strcmp(operator, "-") == 0) return (x - y);
+    if (strcmp(operator, "*") == 0) return (x * y);
+    if (strcmp(operator, "/") == 0) return (x / y);
+    return 0;
+}
+
 long eval(mpc_ast_t *t) {
     /* numbers can be returned directly */
     if (strstr(t->tag, "number")) {
-        return atoi(t->contents)
+        printf("test\n");
+        dbg("got number = %s\n", t->contents);
+        return atoi(t->contents);
     }
     
     /* first child is '(' so second child is operator */
-    // TODO
+    char *op = t->children[1]->contents;
+
+    /* evaluate the first operand and store as 
+     * result 
+     */
+    long result = eval(t->children[2]);
+
+    /* evaluate the rest of the operands and recursively
+     * calls their children to get the final output
+     */
+    int index = 3;
+    while (strstr(t->children[index]->tag, "expression")) {
+        result = eval_op(result, op, eval(t->children[index]));
+        index++;
+    }
+
+    return result;
 }
 
 int main(int argc, char** argv) {
@@ -44,8 +76,9 @@ int main(int argc, char** argv) {
         mpc_result_t result;
 
         if (mpc_parse("<stdin>" , line, Lispy, &result)) {
-           mpc_ast_print(result.output);
-           mpc_ast_delete(result.output);
+            long r = eval(result.output);
+            printf("%li\n", r);
+            mpc_ast_delete(result.output);
         } else {
             mpc_err_print(result.output);
             mpc_err_delete(result.output);

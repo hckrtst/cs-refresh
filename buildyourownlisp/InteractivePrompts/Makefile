@@ -1,4 +1,4 @@
-all: basic_repl polish polish2 #polish_eval
+all: basic_repl polish polish2 polish_eval
 
 basic_repl:
 	mkdir -p bin
@@ -14,7 +14,7 @@ polish2:
 
 polish_eval:
 	mkdir -p bin
-	clang linenoise.c mpc.c polish_eval.c -lm -o bin/polish_eval
+	clang linenoise.c mpc.c polish_eval.c -lm -g -o bin/polish_eval
 
 clean:
 	rm bin/*
