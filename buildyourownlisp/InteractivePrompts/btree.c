@@ -19,16 +19,31 @@
 #include "linenoise.h"
 #include <string.h>
 
-typedef struct node {
+/* definitions */
+typedef struct node_t {
     void *data;
     struct node *left, *right;
-}node;
+}node_t;
 
-typedef struct tree {
-    node *root;
-    node *left, *right;
-}tree;
+typedef struct tree_t {
+    node_t *root;
+    node_t *left, *right;
+}tree_t;
 
+/* local vars */
+static tree_t *tree; 
+
+/* local functions */
+// TODO use macros to generate a generic insert function
+static int insert(void * data) {
+}
+
+static void print_tree(tree_t* t) {
+    
+}
+
+
+/* global functions */
 int main(int argc, char **argv) {
     int a = 10;
 
@@ -47,5 +62,5 @@ int main(int argc, char **argv) {
 
     free(ptest2);
     
-    exit(0);
+    return 0;
 }

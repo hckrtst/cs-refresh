@@ -1,4 +1,4 @@
-all: basic_repl polish polish2 polish_eval btree
+all: basic_repl polish polish2 polish_eval btree binary_tree
 
 basic_repl:
 	mkdir -p bin
@@ -19,6 +19,10 @@ polish_eval:
 btree:
 	mkdir -p bin
 	clang linenoise.c mpc.c btree.c -lm -g -o bin/btree
+
+binary_tree:
+	mkdir -p bin
+	clang binary_tree.c -lm -g -Wall -o bin/binary_tree
 
 clean:
 	rm bin/*
