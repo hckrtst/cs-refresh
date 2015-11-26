@@ -88,8 +88,29 @@
         node_t* node = NULL; \
         create_node(node, dat); \
         node_t *cursor = root; \
-        (void)lte(node, cursor); \
-        printf("pretend we inserted %d\n", *dat); \
+        while(1) {              \
+            if (lte(node, cursor)) { \
+                if(cursor->left != NULL) { \
+                    printf("continue left from %d\n", *(cursor->payload->data)); \
+                    cursor = cursor->left; \
+                    continue; \
+                } else { \
+                    printf("inserting %d left of %d\n", *dat, *(cursor->payload->data));  \
+                    cursor->left = node; \
+                    break; \
+                } \
+            }else { \
+                if(cursor->right != NULL) { \
+                    printf("continue right from %d\n", *(cursor->payload->data)); \
+                    cursor = cursor->right; \
+                    continue; \
+                } else { \
+                    printf("inserting %d right of %d\n", *dat, *(cursor->payload->data));  \
+                    cursor->right = node; \
+                    break; \
+                } \
+            }\
+        }\
     } while(0)
 
 
