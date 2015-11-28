@@ -36,6 +36,8 @@ static int height = 0;
  */ 
 #define define_type(t) typedef t type
 
+#define say(fmt, ...) printf(fmt, ##__VA_ARGS__) 
+
 #define define_payload(type)            \
         typedef struct payload_t{       \
             type *data;                 \
@@ -98,22 +100,18 @@ static int height = 0;
         while(1) {              \
             if (lte(node, cursor)) { \
                 if(cursor->left != NULL) { \
-                    printf("continue left from %d\n", *(cursor->payload->data)); \
                     cursor = cursor->left; \
                     continue; \
                 } else { \
-                    printf("inserting %d left of %d\n", *dat, *(cursor->payload->data));  \
                     cursor->left = node; \
                     height++; \
                     break; \
                 } \
             }else { \
                 if(cursor->right != NULL) { \
-                    printf("continue right from %d\n", *(cursor->payload->data)); \
                     cursor = cursor->right; \
                     continue; \
                 } else { \
-                    printf("inserting %d right of %d\n", *dat, *(cursor->payload->data));  \
                     cursor->right = node; \
                     height++; \
                     break; \
