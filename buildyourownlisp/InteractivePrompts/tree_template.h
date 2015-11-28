@@ -25,13 +25,17 @@
  *
  *
  */
+#include<string.h>
 
+static int height = 0;
 /*
  * This is a template of a binary tree which allows users to define tree that hold
  * data of any arbitrary type. The macros below allow a rudimentary templating 
  * system.
  * It important for the user to use the macros in the order defined below.
  */ 
+#define define_type(t) typedef t type
+
 #define define_payload(type)            \
         typedef struct payload_t{       \
             type *data;                 \
@@ -51,16 +55,19 @@
  */
 #define define_lte() typedef int (*lte_t)(node_t *a, node_t *b)
 
-#define init_payload(payload, dat)   \
-    do {                                    \
+// TODO add null checks
+#define alloc_payload(payload, dat)   \
+    do { \
+        type* d = (type*)(malloc(sizeof(type))); \
+        memcpy(d, dat, sizeof(type)); \
         payload = (payload_t*)(malloc(sizeof(payload_t))); \
-        payload->data = dat;                               \
+        payload->data = d;                              \
     }while(0)
 
 #define create_node(node, dat)    \
     do {                    \
         payload_t *payload = NULL; \
-        init_payload(payload, dat);      \
+        alloc_payload(payload, dat);      \
         node = (node_t*) malloc(sizeof(node_t)); \
        if (node == NULL) {                          \
             fprintf(stderr, "Cannot allocate node\n"); \
@@ -97,6 +104,7 @@
                 } else { \
                     printf("inserting %d left of %d\n", *dat, *(cursor->payload->data));  \
                     cursor->left = node; \
+                    height++; \
                     break; \
                 } \
             }else { \
@@ -107,28 +115,10 @@
                 } else { \
                     printf("inserting %d right of %d\n", *dat, *(cursor->payload->data));  \
                     cursor->right = node; \
+                    height++; \
                     break; \
                 } \
             }\
         }\
     } while(0)
-
-
-/* TODO walk tree to insert data, use lte 
-         * node_t * cursor = root;
-         * while(1) {
-         *  if (lte(node, cursor)) {
-         *      // walk left
-         *      if (cursor->left != NULL) {
-         *          cursor = cursor->left;
-         *          continue;
-         *      } else {
-         *          cursor->left = node;
-         *      }
-         *  } else {
-         *      // walk right
-         *      ...
-         *  }
-         *  }
-         * */
 

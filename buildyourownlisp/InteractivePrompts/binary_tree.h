@@ -28,7 +28,9 @@
 
 #include "tree_template.h"
 
-define_payload(int);
+define_type(int);
+
+define_payload(type);
 define_node();
 define_lte();
 
@@ -42,3 +44,5 @@ node_t* make_tree(int* data) {
 }
 
 int less_than_equal(node_t *a, node_t *b);
+
+
