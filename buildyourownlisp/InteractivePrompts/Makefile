@@ -24,6 +24,14 @@ binary_tree:
 	mkdir -p bin
 	clang binary_tree.c -lm -g -Wall -o bin/binary_tree
 
+ncurses1:
+	mkdir -p bin
+	clang ncurses1.c -g -Wall -lncurses -o bin/ncurses1
+
+ncurses2:
+	mkdir -p bin
+	clang ncurses2.c -g -Wall -lncurses -lm -o bin/ncurses2
+
 clean:
 	rm bin/*
 
