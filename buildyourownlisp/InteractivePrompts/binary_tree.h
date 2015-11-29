@@ -33,12 +33,6 @@ define_type(char);
 define_payload(type);
 define_node();
 define_lte();
-//define_visit();
-
-/* Caution: User must destroy memory allocated for data */
-//void destroy_node(node_t *node);
-
-//int insert_node(node_t *root, node_t *target);
 
 node_t* make_tree(char* data) {
     create_tree(data);
@@ -52,3 +46,6 @@ int less_than_equal(node_t *a, node_t *b);
 void inorder_traverse_r(const node_t *node);
 
 void destroy_tree(node_t * node);
+
+void draw_tree(const node_t* root);
+

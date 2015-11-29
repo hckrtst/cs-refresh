@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
+#include <time.h>
 #include "binary_tree.h"
 
+#define TIMEOUT 250
+
+static struct timespec ts = {.tv_sec = 0, .tv_nsec = 100000000};
 
 int less_than_equal(node_t *a, node_t *b) {
     return (*(a->payload->data) <= *(b->payload->data))?1:0;
@@ -47,14 +52,147 @@ void destroy_tree(node_t * node) {
     free(node);
 }
 
-int main(int argc, char**argv) {
+static inline void pause() {
+    nanosleep(&ts, NULL);
+}
+
+static void check_user_input() {
+    int ch = getch();
+    if (ch == 27) {
+            wclear(stdscr);
+            int row, col;
+            getmaxyx(stdscr, row, col);
+            attron(A_REVERSE);
+            mvprintw(row/2, col/2, "Bye now!");
+            refresh();
+            nanosleep(&ts, NULL);
+            endwin();
+            exit(0);
+    } else if (ch == ERR){
+        getch();
+    } else{
+        // include case that ch == ERR for no input
+        // do nothing
+     }
+}
+
+static void draw_edge(const int row, const int col, int *row_1, int *col_1, int is_right) {
+    int delta_row= 1;
+    int delta_col = 1;
+    *row_1 = row;
+    *col_1 = col;
+
+    if (is_right == 0) {
+        delta_col=-1;
+    }
+
+    pause();
+    for(int i =0; i < 6; i++) {
+        *row_1+=delta_row;
+        *col_1+=delta_col;
+        mvaddch(*row_1, *col_1, '*');
+        refresh();
+    }
+
+    check_user_input();
+}
+
+#if 0
+static int cnt = 0;
+static void dump_node(node_t *node, int row, int col) {
+    cnt++;
+    mvprintw(30+cnt ,30, "Node %c at %d %d",*(node->payload->data), row, col);
+}
+#endif
+
+static void draw_subtree(const node_t *root, const int row, const int col) {
+    int row_1 = 0, col_1 = 0;
+
+    if (root == NULL) {
+        fprintf(stderr, "Bad node\n");
+        return;
+    }
+
+
+    // visit node
+    mvprintw(row, col, "[%c]", *(root->payload->data));
+    //dump_node(root, row , col);
+    refresh();
+    pause();
     
 
+    // draw the edge and get updated x,y and
+    // visit left
+    if (root->left != NULL) {
+        draw_edge(row, col, &row_1, &col_1, 0);
+        draw_subtree(root->left, row_1, col_1);     
+    }
+
+    pause();  
+    if (root->right != NULL) {
+        draw_edge(row, col, &row_1, &col_1, 1);
+        draw_subtree(root->right, row_1, col_1);     
+    }
+    check_user_input();
+}
+
+
+void draw_tree(const node_t *root) {
+    int row, col;
+    initscr();
+    raw();
+    timeout(TIMEOUT);
+    noecho();
+    
+    getmaxyx(stdscr, row, col);
+
+    
+    draw_subtree(root, row/3, col/3);
+    
+    pause();
+    pause();
+    pause();
+
+    wclear(stdscr);
+
+    endwin();
+
+
+}
+
+void draw_sanket() {
+    char c = 's';
+    node_t* root = make_tree(&c);
+
+    c = 'a';
+    insert_data(root, &c, less_than_equal);
+   
+    c = 'n';
+    insert_data(root, &c, less_than_equal);
+
+    c = 'k';
+    insert_data(root, &c, less_than_equal);
+
+    c = 'e';
+    insert_data(root, &c, less_than_equal);
+
+    c= 't';
+    insert_data(root, &c, less_than_equal);
+
+    inorder_traverse_r(root);
+
+    draw_tree(root);
+
+    destroy_tree(root);
+    root = NULL; // We need to do this
+
+
+}
+
+void draw_manasi() {
     char c = 'm';
     node_t* root = make_tree(&c);
 
-    printf("Created tree with root value of %c\n", *(root->payload->data));
-   
     c = 'a';
     insert_data(root, &c, less_than_equal);
    
@@ -72,10 +210,19 @@ int main(int argc, char**argv) {
 
     inorder_traverse_r(root);
 
+    draw_tree(root);
+
     destroy_tree(root);
     root = NULL; // We need to do this
 
-    inorder_traverse_r(root);
+
+}
+
+int main(int argc, char**argv) {
+    
+    draw_manasi();
+    draw_sanket();
+    
 
     return 0;
 }

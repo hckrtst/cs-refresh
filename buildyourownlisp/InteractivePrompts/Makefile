@@ -1,4 +1,4 @@
-all: basic_repl polish polish2 polish_eval btree binary_tree
+all: basic_repl polish polish2 polish_eval binary_tree
 
 basic_repl:
 	mkdir -p bin
@@ -22,7 +22,7 @@ btree:
 
 binary_tree:
 	mkdir -p bin
-	clang binary_tree.c -lm -g -Wall -o bin/binary_tree
+	clang binary_tree.c -lm -lncurses -g -Wall -o bin/binary_tree
 
 ncurses1:
 	mkdir -p bin

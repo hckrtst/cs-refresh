@@ -42,7 +42,7 @@ static int height = 0;
         typedef struct payload_t{       \
             type *data;                 \
         }payload_t
- 
+
 #define define_node()                   \
         typedef struct node_t {         \
             const payload_t *payload;         \

@@ -21,7 +21,7 @@ static void check_user_input() {
             sleep(3);
             endwin();
             exit(0);
-        } else{
+        else{
             // include case that ch == ERR for no input
             // do nothing
         }
