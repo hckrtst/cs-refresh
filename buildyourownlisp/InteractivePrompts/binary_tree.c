@@ -174,7 +174,28 @@ void draw_tree(const node_t* root) {
     draw_tree_internal(root);
 }
 
-
+/*
+ * 
+ * 
+ */
+static void reorg_subtree(node_t * node) {
+    
+}
+enum find_ret_val remove_element(node_t **prev_child, node_t *node, type item) {
+    /*
+     * check for root case first
+     * if root then prev_child is not applicable since there is no parent
+     *
+     * check current node
+     *  if found then 
+     * check left
+     *  if found th
+     *
+     * check right
+     */ 
+    
+    return BST_NOT_FOUND;
+}
 int main(int argc, char**argv) {
  
     {

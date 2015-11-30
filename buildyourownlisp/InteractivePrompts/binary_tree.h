@@ -34,6 +34,15 @@ define_payload(type);
 define_node();
 define_lte();
 
+enum find_ret_val {
+    BST_MIN,
+    BST_NOT_FOUND,
+    BST_FOUND,
+    BST_FAILED,
+    BST_MAX
+};
+
+
 node_t* make_tree(const char* data) {
     create_tree(data);
 }
@@ -50,4 +59,6 @@ void destroy_tree(node_t ** node);
 void draw_tree(const node_t* root);
 
 node_t* build_tree(const int c, const char s[]);
+
+enum find_ret_val remove_element(node_t **prev_child, node_t *node, type item);
 
