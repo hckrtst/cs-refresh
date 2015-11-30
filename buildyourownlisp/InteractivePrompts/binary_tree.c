@@ -32,24 +32,25 @@ void inorder_traverse_r(const node_t *node) {
 /* We need to do post order traversal 
  * for destroy
  */
-void destroy_tree(node_t * node) {
+void destroy_tree(node_t** node) {
    // error case
-   if (node == NULL) {
+   if (*node == NULL) {
        fprintf(stderr, "Dang it, you gave me a null node!\n");
        return;
    }
 
-    if (node->left != NULL) {
-        destroy_tree(node->left);
+    if ((*node)->left != NULL) {
+        destroy_tree(&((*node)->left));
     }
-    if (node->right != NULL) {
-        destroy_tree(node->right);
+    if ((*node)->right != NULL) {
+        destroy_tree(&((*node)->right));
     }
 
-    say("I am destroying node %c:\n", *(node->payload->data));
-    free(node->payload->data);
-    free((void*) node->payload);
-    free(node);
+    say("I am destroying node %c:\n", *((*node)->payload->data));
+    free((*node)->payload->data);
+    free((void*) (*node)->payload);
+    free(*node);
+    *node = NULL;
 }
 
 static inline void pause() {
@@ -137,7 +138,7 @@ static void draw_subtree(const node_t *root, const int row, const int col) {
 }
 
 
-void draw_tree(const node_t *root) {
+void draw_tree_internal(const node_t *root) {
     int row, col;
     initscr();
     raw();
@@ -160,21 +161,17 @@ void draw_tree(const node_t *root) {
 
 }
 
-static void draw(const int c, const char s[]) {
+node_t *build_tree(const int c, const char s[]) {
     node_t* root = make_tree(&s[0]);
-
     for(int i=1; i < c; i++) {
         insert_data(root, &s[i], less_than_equal);
     }
-
-    inorder_traverse_r(root);
-
-    draw_tree(root);
-
-    destroy_tree(root);
-    root = NULL; // We need to do this
+    return root;
+}
 
 
+void draw_tree(const node_t* root) {
+    draw_tree_internal(root);
 }
 
 
@@ -182,17 +179,23 @@ int main(int argc, char**argv) {
  
     {
         const char s1[] = { 'M', 'a', 'n', 'a', 's', 'i'};
-        draw(sizeof(s1), s1);
+        node_t* root = build_tree(sizeof(s1), s1);
+        draw_tree(root);
+
     }
     
     {
-        const char s2[] = { 'S', 'a', 'n', 'k', 'e', 't'};
-        draw(sizeof(s2), s2);
+        const char s[] = { 'S', 'a', 'n', 'k', 'e', 't'};
+        node_t* root = build_tree(sizeof(s), s);
+        draw_tree(root);
+
     }
     
     {
-        const char s3[] = { 'O', ' ', 'C', 'a', 'n', 'a', 'd', 'a'};
-        draw(sizeof(s3), s3);
+        const char s[] = { 'O', ' ', 'C', 'a', 'n', 'a', 'd', 'a'};
+        node_t* root = build_tree(sizeof(s), s);
+        draw_tree(root);
+
     }
 
     return 0;
