@@ -87,7 +87,7 @@ static void draw_edge(const int row, const int col, int *row_1, int *col_1, int 
     }
 
     pause();
-    for(int i =0; i < 6; i++) {
+    for(int i =0; i < 8; i++) {
         *row_1+=delta_row;
         *col_1+=delta_col;
         mvaddch(*row_1, *col_1, '*');
@@ -160,24 +160,12 @@ void draw_tree(const node_t *root) {
 
 }
 
-void draw_sanket() {
-    char c = 's';
-    node_t* root = make_tree(&c);
+static void draw(const int c, const char s[]) {
+    node_t* root = make_tree(&s[0]);
 
-    c = 'a';
-    insert_data(root, &c, less_than_equal);
-   
-    c = 'n';
-    insert_data(root, &c, less_than_equal);
-
-    c = 'k';
-    insert_data(root, &c, less_than_equal);
-
-    c = 'e';
-    insert_data(root, &c, less_than_equal);
-
-    c= 't';
-    insert_data(root, &c, less_than_equal);
+    for(int i=1; i < c; i++) {
+        insert_data(root, &s[i], less_than_equal);
+    }
 
     inorder_traverse_r(root);
 
@@ -189,40 +177,23 @@ void draw_sanket() {
 
 }
 
-void draw_manasi() {
-    char c = 'm';
-    node_t* root = make_tree(&c);
-
-    c = 'a';
-    insert_data(root, &c, less_than_equal);
-   
-    c = 'n';
-    insert_data(root, &c, less_than_equal);
-
-    c = 'a';
-    insert_data(root, &c, less_than_equal);
-
-    c = 's';
-    insert_data(root, &c, less_than_equal);
-
-    c= 'i';
-    insert_data(root, &c, less_than_equal);
-
-    inorder_traverse_r(root);
-
-    draw_tree(root);
-
-    destroy_tree(root);
-    root = NULL; // We need to do this
-
-
-}
 
 int main(int argc, char**argv) {
+ 
+    {
+        const char s1[] = { 'M', 'a', 'n', 'a', 's', 'i'};
+        draw(sizeof(s1), s1);
+    }
     
-    draw_manasi();
-    draw_sanket();
+    {
+        const char s2[] = { 'S', 'a', 'n', 'k', 'e', 't'};
+        draw(sizeof(s2), s2);
+    }
     
+    {
+        const char s3[] = { 'O', ' ', 'C', 'a', 'n', 'a', 'd', 'a'};
+        draw(sizeof(s3), s3);
+    }
 
     return 0;
 }

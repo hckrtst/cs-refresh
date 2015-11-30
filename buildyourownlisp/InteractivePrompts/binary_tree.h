@@ -34,7 +34,7 @@ define_payload(type);
 define_node();
 define_lte();
 
-node_t* make_tree(char* data) {
+node_t* make_tree(const char* data) {
     create_tree(data);
 }
 
