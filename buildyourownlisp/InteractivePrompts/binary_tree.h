@@ -60,5 +60,5 @@ void draw_tree(const node_t* root);
 
 node_t* build_tree(const int c, const char s[]);
 
-enum find_ret_val remove_element(node_t **prev_child, node_t *node, type item);
+node_t* remove_element(type item);
 

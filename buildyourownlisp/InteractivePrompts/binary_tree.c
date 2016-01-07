@@ -8,6 +8,19 @@
 
 static struct timespec ts = {.tv_sec = 0, .tv_nsec = 100000000};
 
+/*void find_element(const node)
+{
+}*/
+
+
+
+node_t* remove_element(type item) {
+    
+    // preorder traverse 
+    //node_t*  
+    return NULL;
+}
+
 int less_than_equal(node_t *a, node_t *b) {
     return (*(a->payload->data) <= *(b->payload->data))?1:0;
 }
@@ -181,6 +194,8 @@ void draw_tree(const node_t* root) {
 static void reorg_subtree(node_t * node) {
     
 }
+
+#if 0
 enum find_ret_val remove_element(node_t **prev_child, node_t *node, type item) {
     /*
      * check for root case first
@@ -194,8 +209,18 @@ enum find_ret_val remove_element(node_t **prev_child, node_t *node, type item) {
      * check right
      */ 
     
+    if ((prev_child == NULL) && (*(node->payload->data) == item)) {
+        // special handling for root node
+        
+        // if no left child then simply move right child to be new root
+    }
+
+
     return BST_NOT_FOUND;
 }
+#endif
+
+
 int main(int argc, char**argv) {
  
     {
