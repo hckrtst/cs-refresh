@@ -1,55 +1,59 @@
 /*
- * main.c
- * Copyright (C) 2016 Unknown <tintin@daredevil>
+ * Copyright (C) 2016 hckrtst
  * 
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 
 
 int reverse(int x) {
-    int res = 0;
+    long res = 0;
     int *digits = (int*) calloc(1024, sizeof(int));
-    int holder = abs(x);
+    long holder = (long)abs(x);
     int index = 0;
     
     while((holder >= 10)) {
-        int new_holder = holder/10;
-        int temp = holder - (new_holder*10);
+        long new_holder = holder/10;
+        long temp = holder - (new_holder*10);
         holder = new_holder;
-        digits[index] = temp;
+        digits[index] = (int) temp;
         printf("%d --> holder=%d \n", digits[index], holder);
         index++;
     }
 
     // last digit
-    digits[index] = holder;
+    digits[index] = (int) holder;
 
     int c = index;
     int i;
     for(i = 0; i <= c; i++) {
-        printf("Res = %d, index = %d, pow = %d \n",
+        printf("Res = %ld, index = %d, pow = %d \n",
                res, i, (int) (pow(10,index)));
         int p = (int) pow(10,index);
-        int t = digits[i] * p;
+        long t = digits[i] * p;
 	    
        
-        //handle overflow
-        //goto yikes!
-        if (t&& (t < p)) {
-            res = 0;
-            goto bail;
-        }
+         //handle overflow
+         //goto yikes!
+         if (t&& (t < p)) {
+             res = 0;
+             goto bail;
+         }
+
 
         res = res + t;
         index--;
     }
+    
 bail:
     free(digits);
     digits = 0;
     if (x < 0) res*=-1;
+    
+    if (res > INT_MAX || res < INT_MIN) res = 0;
     
     return res;
     
@@ -87,6 +91,8 @@ int main()
 	
 	input = 1563847412;
 	printf("input= %d  outcome = %d\n\n", input, reverse(input));
+	
+	printf("max int = %d, min int =%d, min long=%ld, max long = %ld n", INT_MIN, INT_MAX, LONG_MIN, LONG_MAX);
 
     return 0;
 }
