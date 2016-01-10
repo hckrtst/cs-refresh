@@ -92,7 +92,7 @@ int main()
 	input = 1563847412;
 	printf("input= %d  outcome = %d\n\n", input, reverse(input));
 	
-	printf("max int = %d, min int =%d, min long=%ld, max long = %ld n", INT_MIN, INT_MAX, LONG_MIN, LONG_MAX);
+	printf("max int = %d, min int =%d, min long=%ld, max long = %ld \n", INT_MIN, INT_MAX, LONG_MIN, LONG_MAX);
 
     return 0;
 }
