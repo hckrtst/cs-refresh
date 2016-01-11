@@ -54,8 +54,8 @@ int myAtoi(char* str)
 		
 	bool bail_condition = false;
 	
-	//scrub space
-	while(*ptr == ' ') ptr++;
+	//scrub space and +
+	while((*ptr == ' ') || (*ptr == '+')) ptr++;
 		
 	if (is_negative(ptr)) {
 		is_neg = true;
@@ -63,15 +63,19 @@ int myAtoi(char* str)
 		ptr++;
 	}
 	
+	
+	//scrub space and +
+	while((*ptr == ' ') || (*ptr == '+')) ptr++;
+	
 	while(*ptr != '\0') {
 			long d = 0;
 			
 			if (is_valid_digit(ptr, &d)) {
 				//printf("%d\n", d);
 				output = output * 10 + d;
-				if (output > INT_MAX) {
+				if ((output > INT_MAX) && !is_neg){
 					return INT_MAX;
-				} else if (output < INT_MIN) {
+				} else if (((-1*output) < INT_MIN) && is_neg) {
 					return INT_MIN;
 				}
 			} else if (*ptr == ' ') {
@@ -109,6 +113,11 @@ int main()
 	
 	{
 		char s[] = "   -2456    9981";
+		printf("atoi = %d\n", myAtoi(s));
+	}
+	
+	{
+		char s[] = " +  -   +2456    9981";
 		printf("atoi = %d\n", myAtoi(s));
 	}
 }
