@@ -26,6 +26,25 @@ static inline bool is_negative(const char * c)
 #define NINE		57
 #define SPACE     32
 
+
+static inline bool is_digit(const char *c)
+{
+	switch(*c) {
+	case ZERO:
+	case ONE:		
+	case TWO:
+	case THREE:
+	case FOUR:
+	case FIVE:		
+	case SIX:
+	case SEVEN:
+	case EIGHT:
+	case NINE:
+		return true;
+	}
+	return false;
+}
+
 static inline bool is_valid_digit(const char *c, long* d)
 {
 	*d = 0;
@@ -51,21 +70,26 @@ int myAtoi(char* str)
 	char * ptr = str;
 	long output = 0;
 	bool is_neg = false;
+	bool is_plus = false;	
+	bool bail = false;	
+	//scrub 
+	while((*ptr != '\0') && (!is_digit(ptr))) {
+		if (((*ptr == '+') && is_neg) || 
+			((*ptr == '-') && is_plus)) {
+				bail = true;
+				break;	
+		}
 		
-	bool bail_condition = false;
-	
-	//scrub space and +
-	while((*ptr == ' ') || (*ptr == '+')) ptr++;
-		
-	if (is_negative(ptr)) {
-		is_neg = true;
-		//skip over minus
+		if (*ptr == '+') {
+			is_plus = true;
+		}
+		else if (is_negative(ptr)) {
+			is_neg = true;
+		}
 		ptr++;
 	}
 	
-	
-	//scrub space and +
-	while((*ptr == ' ') || (*ptr == '+')) ptr++;
+	if (bail) return 0;
 	
 	while(*ptr != '\0') {
 			long d = 0;
@@ -78,12 +102,8 @@ int myAtoi(char* str)
 				} else if (((-1*output) < INT_MIN) && is_neg) {
 					return INT_MIN;
 				}
-			} else if (*ptr == ' ') {
-				break;
 			} else {
-				//bail_condition = true;
-				//output = 0;
-				return 0;
+				break;
 			}
 			ptr++;
 	}
@@ -120,4 +140,10 @@ int main()
 		char s[] = " +  -   +2456    9981";
 		printf("atoi = %d\n", myAtoi(s));
 	}
+	
+	{
+		char s[] = " 1";
+		printf("atoi = %d\n", myAtoi(s));
+	}
+	
 }
