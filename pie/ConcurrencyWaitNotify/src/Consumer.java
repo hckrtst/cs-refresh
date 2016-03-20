@@ -10,10 +10,9 @@ public class Consumer implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Consumer running");
+        Util.threadPrint("Consumer running");
         while(true) {
             int num = buffer.remove();
-            System.out.println("Consumed " + num);
             // Force a delay to induce thread switch
             try {
                 Thread.sleep(1);

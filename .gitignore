@@ -2,4 +2,6 @@ a.out
 history.txt
 bin/
 core*
-
+out/
+.idea/
+desktop.ini

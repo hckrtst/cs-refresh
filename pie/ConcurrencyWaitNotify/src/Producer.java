@@ -12,13 +12,12 @@ public class Producer implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Producer running");
+        Util.threadPrint("Producer running");
         // Generate random numbers to fill the buffer
         Random r = new Random();
         while(true) {
             int num = r.nextInt();
             buffer.add(num);
-            System.out.println("Produced " + num);
             // Force a delay to induce thread switch
             try {
                 Thread.sleep(1);
