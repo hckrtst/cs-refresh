@@ -5,3 +5,4 @@ core*
 out/
 .idea/
 desktop.ini
+*.iml

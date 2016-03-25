@@ -50,6 +50,9 @@ The producer is producing random integers and filling a fixed size buffer.
 We don't use any synchronization on purpose so we can see what kind of issues we may encounter.
 
 
+### References
+* http://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html
+
 
 ### ShoddyConcurrency
 TBD
