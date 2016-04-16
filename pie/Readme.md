@@ -63,6 +63,10 @@ TBD
 ### Dinining Philosophers
 TBD
 
+# Arrays and Strings
+
+## Reversing strings
+
 # Trees
 TBD
 

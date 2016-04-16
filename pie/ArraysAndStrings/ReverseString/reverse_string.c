@@ -128,6 +128,7 @@ int main(int argc, char** argv) {
 		char* mystring = NULL;
 		reverse_string_inline(mystring);
 	}
+
 	return 0;	
 }
 
