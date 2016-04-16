@@ -1,10 +1,9 @@
 #include <stdlib.h>
-
-
+#include <stdio.h>
 
 int check_valid_string(const char* const s) {
 	char *ptr = s;
-	int len = 0;
+	int res = 0;
 	
 	do {
 		// null pointers are invalid
@@ -14,18 +13,19 @@ int check_valid_string(const char* const s) {
 		if (*ptr == NULL) break;
 
 		int counter = 0;
+		
 		// TODo future optimization
 		// if only one letter/word then not valid
 		// a letter followed by space(s) followed by letter is good
 		while (*ptr != NULL) {
-			counter++; 
+			res++;
+			ptr++;	
 		}
-		len = counter - 1;
 	} while (0);
-	return len;	
+	return res;	
 }
 
-void swap(char* s, const int h, const int t) {
+void swap(char* const s, const int h, const int t) {
 	char temp = s[h];
 	s[h] = s[t];
 	s[t] = temp;
@@ -64,13 +64,13 @@ int reverse_string_inline(char* const s) {
 			tail--;
 		}
 
-		printf("Intermediate strning = %s\n", s);
+		printf("Intermediate string = %s\n", s);
 
 		// iterate over each word and re-reverse it
 		head = 0;
 		tail = head;
-		int cursor = 0;
-		while (head <= len) {
+		char *cursor = s;
+		while (*cursor != NULL) {
 			if (*cursor != ' ') {
 				tail++;
 			} else if (*cursor == ' ') {
@@ -84,16 +84,19 @@ int reverse_string_inline(char* const s) {
 				head = tail;
 				
 			}
+
+			cursor++;
 		}
 
 		printf("Reversed string = %s\n", s);
 
 	}
-	
+	return 0;
 }
 
-int main(int argc, char [] argv) {
-	char* mystring = "this is a test";
+int main(int argc, char** argv) {
+	char mystring[]= "this is a test";
+	mystring[0] = 'T';
 	reverse_string_inline(mystring);
 	return 0;	
 }
