@@ -31,9 +31,10 @@ Handle integer overflow/underflow gracefully
 */
 
 #include <stdio.h>
+#include <assert.h>
 
-int _isdigit(const char c) {
-    if (c == '+' || c == '-') return 1;
+int _isneg(const char c) {
+    if (c == '-') return 1;
     return 0;
 }
 
@@ -41,16 +42,18 @@ int _isdigit(const char c) {
  remove extra spaces and check for signs
 */
 int _trim(const char* const s, char **cursor) {
-    int result = 1;
+    int res = 1;
     // remove any extra spaces
     while (**cursor == ' ') {
         (*cursor)++;
     }
 
-    int is_sign_found = 0;
 
-    if (_isdigit(**cursor)) {
-        is_sign_found = 1;
+    
+    if (_isneg(**cursor)) {
+        res = -1;
+        (*cursor)++;
+    } else if (**cursor == '+') {
         (*cursor)++;
     }
 
@@ -58,13 +61,17 @@ int _trim(const char* const s, char **cursor) {
         (*cursor)++;
     }
 
-    if (**cursor < '0' || **cursor > '9') result = 0;
+    return res;
 }
 
+// TODO handle overflow/underflow
 int _extract_digits(char ** cursor) {
     int acc = 0;
     while (*cursor != NULL && **cursor >= '0' && **cursor <= '9') {
         acc = acc * 10 + (**cursor - '0');
+
+        // CAUTION: Always add an incrementor in while loops right away!!!!!!
+        (*cursor)++;
     }
     return acc;   
 }
@@ -72,23 +79,27 @@ int _extract_digits(char ** cursor) {
 int str_to_int(const char* const s) {
     if (s == NULL) return 0;
 
-    int res = 0;
+    int sign = 0;
     char *cursor = s;
-    res = _trim(s, &cursor);
+    sign = _trim(s, &cursor);
 
-    if (res) {
-        res = _extract_digits(&cursor);
-    } else {
-        printf("Illegal char \n");
-    }
+    int res = _extract_digits(&cursor);
 
-    return res;
+    return (res * sign);
 }
 
 int main(int argc, char **argv) {
-    int n = str_to_int("3456");
+    int n = str_to_int("+3456");
     assert(n == 3456);
 
     n = str_to_int("-234");
     assert(n == -234);
+
+    n = str_to_int("   -   0");
+    assert(n == 0);
+
+    n = str_to_int("- + 56");
+    assert(n == 0);
+
+    printf("All passed\n");
 }
