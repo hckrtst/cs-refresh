@@ -55,7 +55,7 @@ int reverse_string_inline(char* const s) {
 		printf("Str = %s\n", s);
 
 		// reverse the whole string
-		int tail = len;
+		int tail = len - 1;
 		int head = 0;
 
 		while(head <= tail) {
