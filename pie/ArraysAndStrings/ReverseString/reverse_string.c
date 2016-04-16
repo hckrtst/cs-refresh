@@ -78,22 +78,23 @@ int reverse_string_inline(char* const s) {
 
 		// iterate over each word and re-reverse it
 		head = 0;
-		tail = head;
 		char *cursor = s;
 		while (*cursor != NULL) {
 			while (*cursor != NULL && *cursor == ' ') {
-				tail++;
 				head++;
 				cursor++;
 			}
 
+			// move tail up
+			tail = head;
 			while (*cursor != NULL && *cursor != ' ') {
 				tail++;
 				cursor++;
 			}
 
 			reverse_word(s, head, tail-1);
-			
+			// we need to move head up
+			head = tail;			
 		}
 
 		printf("Reversed string = %s\n", s);
@@ -103,8 +104,25 @@ int reverse_string_inline(char* const s) {
 }
 
 int main(int argc, char** argv) {
-	char mystring[]= " this     is a test";
-	reverse_string_inline(mystring);
+	{
+		char mystring[]= " this     is a test";
+		reverse_string_inline(mystring);
+	}
+
+	{
+		char mystring[]= "";
+		reverse_string_inline(mystring);
+	}
+
+	{
+		char mystring[]= " ";
+		reverse_string_inline(mystring);
+	}
+
+	{
+		char mystring[]= "thisisatest";
+		reverse_string_inline(mystring);
+	}
 	return 0;	
 }
 
