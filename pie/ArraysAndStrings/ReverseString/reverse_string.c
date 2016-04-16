@@ -1,6 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*
+Problem is to reverse order of words in a string
+
+input: This is a test
+output: test a is This
+
+Constraint: Don't allocate any extra buffer space 
+*/
+
 int check_valid_string(const char* const s) {
 	char *ptr = s;
 	int res = 0;

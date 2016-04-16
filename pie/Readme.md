@@ -67,6 +67,20 @@ TBD
 
 ## Reversing strings
 
+# Interger Overflows
+* The type int is a signed 32-bit integer and the type long is a 64-bit integer. A Java program does not recognize an integer overflow and the program continues with wrong results
+* C also does not handle overflows :grimacing:
+* clang has an option to check overflow exceptions
+```
+-ftrapv
+          Generate code to catch integer overflow errors.  Signed integer overflow is unde-
+          fined in C. With this flag, extra code is generated to detect this and abort when
+          it happens.
+```
+
+## Reference
+* http://rosettacode.org/wiki/Integer_overflow
+
 # Trees
 TBD
 
