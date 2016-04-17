@@ -12,7 +12,7 @@ Examples of palindromes:
 ```
 
 ## Option1: convert to string first
-Once converted to string we could then iterat the string:
+Once converted to string we could then iterate the string:
 ```
 check for empty string
 check for null string
@@ -26,6 +26,41 @@ while head != tail
 end
 ```
 
+## C
+This is the most challenging part of this approach. There is no standard itoa() method in C, so we would write our own.
 
+We can use the modulo operator to strip the lower digits of a given number.
+
+> 314 / 10 => 31 with remainder of 4
+> This is the same as saying 314 modulo 10
+
+```c
+
+int get_char_r(int i, const char[] const digits, char[] outcome) {
+    if ((i >= 0) && (i <= 9))  {
+        outcome[0] = digits[i];
+        return 0;
+    } else {
+        int rem = i % 10;
+        int index = (get_char_r(i/10, digits, outcome)) + 1;
+        outcome[index] = digits[rem];
+        return index;
+    }
+}
+
+char *itoa(const int i) {
+    int j = i;
+    const int MAX_CHARS = 12;
+    char digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    char *s = (char*) malloc(sizeof(char) * MAX_CHARS);
+    (void) get_char_r(j, digits, s);
+    return s;    
+}  
+
+```
+
+### Useful Reference
+* http://www.strudel.org.uk/itoa/
 
 # Adding additional constraints - do not convert number to string

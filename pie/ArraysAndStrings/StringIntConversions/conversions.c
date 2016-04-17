@@ -47,8 +47,6 @@ int _trim(const char* const s, char **cursor) {
     while (**cursor == ' ') {
         (*cursor)++;
     }
-
-
     
     if (_isneg(**cursor)) {
         res = -1;
