@@ -65,9 +65,13 @@ This itoa has a strange bug though when only single digit is provided:
 ```
 Sankets-Mac-mini:P1 sanket$ ./a.out
 Outcome = 345500 --> input is 345500 --> OK
-Outcome = 045500 --> input is 0 --> oops!
+Outcome = 945500 --> input is 9 --> oops!
 Outcome = 0 --> input is negative number --> oops!
 ```
+
+The issue seen when inout is 0 is that we got a chunk of uninitialized memory. We can fix this by using `calloc`.
+
+See [myitoa.c](myitoa.c) for complete solution.
 
 
 ### Useful Reference

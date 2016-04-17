@@ -19,8 +19,11 @@ char *my_itoa(const int i) {
     const int MAX_CHARS = 12;
     char digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-    char *s = (char*) malloc(sizeof(char) * MAX_CHARS);
-    (void) get_char_r(j, digits, s);
+    // calloc zeroes out memory
+    char *s = (char*) calloc(MAX_CHARS, sizeof(char));
+    // char *s = (char*) malloc(sizeof(char) * MAX_CHARS);
+    int len = get_char_r(j, digits, s);
+    
     return s;    
 }  
 
@@ -32,7 +35,7 @@ int main(int argc, char **argv) {
     }
 
     {
-        char *s = my_itoa(0);
+        char *s = my_itoa(9);
         printf("Outcome = %s \n", s);
         free(s);
     }
