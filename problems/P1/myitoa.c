@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int get_char_r(int i, const char[] digits, char[] outcome) {
+
+int get_char_r(int i, const char digits[], char outcome[]) {
     if ((i >= 0) && (i <= 9))  {
         outcome[0] = digits[i];
         return 0;
@@ -15,7 +17,7 @@ int get_char_r(int i, const char[] digits, char[] outcome) {
 char *my_itoa(const int i) {
     int j = i;
     const int MAX_CHARS = 12;
-    char digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    char digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     char *s = (char*) malloc(sizeof(char) * MAX_CHARS);
     (void) get_char_r(j, digits, s);
@@ -23,7 +25,24 @@ char *my_itoa(const int i) {
 }  
 
 int main(int argc, char **argv) {
-    char *s = my_itoa(345500);
-    printf("Outcome = %s", s);
-    free(s);
+    {
+        char *s = my_itoa(345500);
+        printf("Outcome = %s \n", s);
+        free(s);
+    }
+
+    {
+        char *s = my_itoa(0);
+        printf("Outcome = %s \n", s);
+        free(s);
+    }
+
+    {
+        char *s = my_itoa(-13456789);
+        printf("Outcome = %s \n", s);
+        free(s);
+    }
+
+
+
 }

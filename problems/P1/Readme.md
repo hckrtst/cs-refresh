@@ -36,7 +36,7 @@ We can use the modulo operator to strip the lower digits of a given number.
 
 ```c
 
-int get_char_r(int i, const char[] const digits, char[] outcome) {
+int get_char_r(int i, const char digits[], char outcome[]) {
     if ((i >= 0) && (i <= 9))  {
         outcome[0] = digits[i];
         return 0;
@@ -48,10 +48,10 @@ int get_char_r(int i, const char[] const digits, char[] outcome) {
     }
 }
 
-char *itoa(const int i) {
+char *my_itoa(const int i) {
     int j = i;
     const int MAX_CHARS = 12;
-    char digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    char digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     char *s = (char*) malloc(sizeof(char) * MAX_CHARS);
     (void) get_char_r(j, digits, s);
@@ -59,6 +59,16 @@ char *itoa(const int i) {
 }  
 
 ```
+
+This itoa has a strange bug though when only single digit is provided:
+
+```
+Sankets-Mac-mini:P1 sanket$ ./a.out
+Outcome = 345500 --> input is 345500 --> OK
+Outcome = 045500 --> input is 0 --> oops!
+Outcome = 0 --> input is negative number --> oops!
+```
+
 
 ### Useful Reference
 * http://www.strudel.org.uk/itoa/
