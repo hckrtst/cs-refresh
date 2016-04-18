@@ -4,6 +4,8 @@ Contains an assortment of interview style problems with links to solutions and c
 # P1 - Is given number a palindrome?
 Implement a function that checks whether a positive number is a palindrome or not. For example, 121 is a palindrome, but 123 is not.
 
+See at [P1](P1)
+
 # P2 - Removing specified characters from a given array
 Design an algorithm to remove a specified char from an array. No extra buffer may be used.
 

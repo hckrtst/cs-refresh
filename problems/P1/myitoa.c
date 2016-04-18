@@ -22,43 +22,18 @@ int get_char_r(int i, const char digits[], char outcome[], const int is_neg) {
     }
 }
 
-char *my_itoa(const int i) {
+void my_itoa(const int i, char **str_val) {
     int j = i;
     const int MAX_CHARS = 12;
     char digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     // calloc zeroes out memory
-    char *s = (char*) calloc(MAX_CHARS, sizeof(char));
+    *str_val = (char*) calloc(MAX_CHARS, sizeof(char));
     int len;
     if (i < 0) {
-        len = get_char_r((-1 *j), digits, s, 1);
-        s[0] = '-';
+        len = get_char_r((-1 *j), digits, *str_val, 1);
+        (*str_val)[0] = '-';
     } else {
-        len = get_char_r(j, digits, s, 0);
-    }
-    
-    return s;    
-}  
-
-int main(int argc, char **argv) {
-    {
-        char *s = my_itoa(345500);
-        printf("Outcome = %s \n", s);
-        free(s);
-    }
-
-    {
-        char *s = my_itoa(9);
-        printf("Outcome = %s \n", s);
-        free(s);
-    }
-
-    {
-        char *s = my_itoa(-13456789);
-        printf("Outcome = %s \n", s);
-        free(s);
-    }
-
-
-
+        len = get_char_r(j, digits, *str_val, 0);
+    }    
 }
