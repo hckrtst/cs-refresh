@@ -31,6 +31,9 @@ This is the most challenging part of this approach. There is no standard itoa() 
 
 We can use the modulo operator to strip the lower digits of a given number.
 
+> UPDATE: Is sprintf is allowed then, `sprintf()` can help us convert this in one line `sprintf(string, "%d", number);` which makes option1 more feasible.
+> [Here](http://lxr.free-electrons.com/source/lib/vsprintf.c#L1904) is what `sprintf()` does under the hood.
+
 > 314 / 10 => 31 with remainder of 4
 > This is the same as saying 314 modulo 10 (SEE UPDATE BELOW FOR EDIT)
 
@@ -106,3 +109,12 @@ Now that we have that working we can actually use the function to covert to stri
 * http://www.strudel.org.uk/itoa/
 
 # Adding additional constraints - do not convert number to string
+
+## Option2: compare lowest and highest digits until they don't match
+This solution works but the solution is a bit involved and not very efficient (like the string conversion option).
+
+## Option3: reverse the number and compare with original!
+This is the best solution. It's very efficient and easy to follow as well! :+1:
+
+See [palindrome.c](palindrome.c)
+

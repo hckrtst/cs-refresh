@@ -65,6 +65,15 @@ Solution3
 Create a number which is reverse of the given one and compare with original
 */
 int is_palindrome3(const int num) {
+    int d = num;
+    int acc = 0;
+
+    while (d > 0) {
+        acc = acc * 10 + d % 10;
+        d /= 10;
+    }
+
+    if (acc == num) return 1;
 
     return 0;
 }
@@ -95,6 +104,12 @@ int main(int argc, char **argv) {
     printf("89998 palin = %d\n", is_palindrome2(89998));
     
     printf("-234 palin = %d\n", is_palindrome2(-234));
+
+    printf("345676543 panin = %d\n", is_palindrome3(345676543));
+
+    printf("0 palin = %d\n", is_palindrome3(0));
+
+    printf("1234 palin= %d\n", is_palindrome3(1234));
      
     return 0;
 

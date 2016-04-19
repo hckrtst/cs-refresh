@@ -12,3 +12,6 @@ Design an algorithm to remove a specified char from an array. No extra buffer ma
 # P3 - Removing duplicates from an array
 Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer. 
 > NOTE: One or two additional variables are fine. An extra copy of the array is not.
+
+# P4 - Counting specific chars 
+Write a program that takes an input from user and counts blanks, tabs and newlines.
