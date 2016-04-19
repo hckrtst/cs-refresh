@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int is_neg(char c) {
     if (c == '-') return 1;
@@ -22,15 +23,50 @@ int is_palindrome(const char* const s) {
     return res;
 }
 
+int is_palindrome2(const int num) {
+    if (num < 0) return 0;
+
+    int result = 1;
+    // get number of digits 
+    int d = num;
+    int cnt = 0;
+    while (d != 0) {
+        cnt++;
+        d /= 10;
+    }
+
+    d = num;
+    while (cnt > 0) {
+        cnt--;
+        // strip the lowest digit
+        int low = d % 10;
+        int high = d / pow(10, cnt);
+        if (low != high) {
+            result = 0;    
+            break;
+        }
+
+        // strip high
+        d = d - (high * pow(10, cnt));
+        //stip low
+        d /= 10;
+    }
+
+    return result;
+}
+
 int main(int argc, char **argv) {
+    
     char *s;
+    
     my_itoa(345500, &s);
     printf("Outcome = %s palin = %d\n", s, is_palindrome(s));
-
     free(s);
+    
     my_itoa(9, &s);
     printf("Outcome = %s \n", s);
     free(s);
+    
     my_itoa(-13456789, &s);
     printf("Outcome = %s \n", s);
     free(s);
@@ -39,7 +75,12 @@ int main(int argc, char **argv) {
     printf("Outcome = %s, palin = %d\n", s, is_palindrome(s));
     free(s);
 
+    printf("345000 palin = %d\n", is_palindrome2(345000));
     
+    printf("89998 palin = %d\n", is_palindrome2(89998));
+    
+    printf("-234 palin = %d\n", is_palindrome2(-234));
+     
     return 0;
 
 }
