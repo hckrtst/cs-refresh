@@ -23,6 +23,10 @@ int is_palindrome(const char* const s) {
     return res;
 }
 
+/*
+ Solution2 - without the need to create a string.
+ Strip high and low numbers of integere and compare
+ */
 int is_palindrome2(const int num) {
     if (num < 0) return 0;
 
@@ -50,10 +54,21 @@ int is_palindrome2(const int num) {
         d = d - (high * pow(10, cnt));
         //stip low
         d /= 10;
+        cnt--;
     }
 
     return result;
 }
+
+/* 
+Solution3
+Create a number which is reverse of the given one and compare with original
+*/
+int is_palindrome3(const int num) {
+
+    return 0;
+}
+
 
 int main(int argc, char **argv) {
     
