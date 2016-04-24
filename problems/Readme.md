@@ -15,3 +15,15 @@ Design an algorithm and write code to remove the duplicate characters in a strin
 
 # P4 - Counting specific chars 
 Write a program that takes an input from user and counts blanks, tabs and newlines.
+
+# P5 - Write your own version of wc (K&R C 1.5.4)
+Here is a unix program called `wc`. This is what it does:
+```
+Sankets-Mac-mini:cs-refresh sanket$ echo "island in the sun" | wc
+       1       4      18
+```
+Shows 1 line, 4 words and 18 characters
+Write it from scratch.
+
+# P6 - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
+
