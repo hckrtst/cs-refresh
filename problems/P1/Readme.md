@@ -72,7 +72,7 @@ Outcome = 945500 --> input is 9 --> oops!
 Outcome = 0 --> input is negative number --> oops!
 ```
 
-The issue seen when inout is 0 is that we got a chunk of uninitialized memory. We can fix this by using `calloc`.
+The issue seen when input is single digit in this case is that we got a chunk of _uninitialized memory_. We can fix this by using `calloc`.
 
 We also need to handle negatives properly. That should be simple check.
 
