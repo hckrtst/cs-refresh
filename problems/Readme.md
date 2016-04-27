@@ -25,8 +25,9 @@ Sankets-Mac-mini:cs-refresh sanket$ echo "island in the sun" | wc
 Shows 1 line, 4 words and 18 characters
 Write it from scratch.
 
-# P6 - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
+# P6 - Write your own strlen() - (K&R 2.3)
 
 # P7 - Write a program that accepts several lines and identifies the longest one (K&R 1.9)
 
-# P8 - TODO
+
+# P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))

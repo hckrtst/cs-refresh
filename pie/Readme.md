@@ -98,6 +98,11 @@ TBD
 
 3. Reverse list
 
+# Bit manipulations
+
+## Resources
+* https://www.scribd.com/doc/310278949/Hacker-s-Delight
+
 ## References
 * http://cglab.ca/~abeinges/blah/too-many-lists/book/README.html
 * http://cslibrary.stanford.edu/105/LinkedListProblems.pdf
