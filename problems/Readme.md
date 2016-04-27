@@ -29,5 +29,8 @@ Write it from scratch.
 
 # P7 - Write a program that accepts several lines and identifies the longest one (K&R 1.9)
 
+# P8 - Write a pseudorandom number generator - (K&R 2.7)
+
+# P? - Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
 
 # P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
