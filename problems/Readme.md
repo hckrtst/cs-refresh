@@ -31,6 +31,8 @@ Write it from scratch.
 
 # P8 - Write a pseudorandom number generator - (K&R 2.7)
 
+# P9 - Write htoi() - (K&R ex2.3)
+
 # P? - Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
 
 # P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
