@@ -41,3 +41,39 @@ Write it from scratch.
         read next c
     end
 ```
+
+# Test run
+```
+Sankets-Mac-mini:P5 sanket$ make
+make build
+clang -g mywc.c -I.
+make run
+./a.out
+
+
+elementary my dear watson
+elementary!
+lines: 2    words: 5    characters: 38
+*** Copyright 2016 (C) Flying Coyote Software ***
+
+Sankets-Mac-mini:P5 sanket$ a.out
+bash: a.out: command not found
+Sankets-Mac-mini:P5 sanket$ make run
+./a.out
+
+
+
+lines: 1    words: 0    characters: 1
+*** Copyright 2016 (C) Flying Coyote Software ***
+
+Sankets-Mac-mini:P5 sanket$ echo "this is a test" | ./a.out
+
+
+lines: 1    words: 4    characters: 15
+*** Copyright 2016 (C) Flying Coyote Software ***
+```
+
+## Additional exercise
+Have a look at the BSD implementaion of wc [here](http://opensource.apple.com//source/text_cmds/text_cmds-84/wc/wc.c)
+
+TODO - why is it so much longer and more complex?

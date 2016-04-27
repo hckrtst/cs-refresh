@@ -36,6 +36,6 @@ int main(int argc, char **argv) {
         counts[WC_LINE_INDEX],
         counts[WC_WORD_INDEX],
         counts[WC_CHAR_INDEX]);
-    printf("*** Copyright 2016 (C) Flying Coyote Software *** \n\n");
+    printf("\n\n*** Copyright 2016 (C) Flying Coyote Software *** \n\n");
     return 0;
 }

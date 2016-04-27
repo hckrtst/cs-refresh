@@ -27,3 +27,6 @@ Write it from scratch.
 
 # P6 - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
 
+# P7 - Write a program that accepts several lines and identifies the longest one (K&R 1.9)
+
+# P8 - TODO
