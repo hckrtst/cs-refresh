@@ -6,10 +6,10 @@ Implement a function that checks whether a positive number is a palindrome or no
 
 See at [P1](P1)
 
-# P2 - Removing specified characters from a given array
+# TODO P2 - Removing specified characters from a given array (K&R sec 2.8)
 Design an algorithm to remove a specified char from an array. No extra buffer may be used.
 
-# P3 - Removing duplicates from an array
+# TODO P3 - Removing duplicates from an array
 Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer. 
 > NOTE: One or two additional variables are fine. An extra copy of the array is not.
 
@@ -31,8 +31,8 @@ Write it from scratch.
 
 # P8 - Write a pseudorandom number generator - (K&R 2.7)
 
-# P9 - Write htoi() - (K&R ex2.3)
+# TODO P9 - Write htoi() - (K&R ex2.3)
 
-# P? - Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
+# TODO P? - Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
 
-# P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
+# TODO P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
