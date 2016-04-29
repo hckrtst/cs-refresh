@@ -24,10 +24,12 @@ int htoi(const string s) {
 
    // acc result one by one
    // note: shift left 4 is eq of mult by 16 and faster
-
-
-      
-
+   while (not NULL and not space) {
+      if (can exceed MAXINT) 
+         break
+      acc <-- acc * base16 + getnextdigit   
+   }
+   return acc
 }
 ```
 
