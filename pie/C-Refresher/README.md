@@ -1,4 +1,4 @@
-# C gotchas
+# C Refresher
 
 ## Strings
 
@@ -14,3 +14,6 @@ char *s1 = "This cannot be modified";
 ```c
 char s2[] = "This can be modified";
 ```
+
+# Resources
+* http://c-faq.com/index.html
