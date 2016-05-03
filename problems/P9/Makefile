@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -g
-SRC = utils.c p8.c
-EXEC = p8
+SRC = utils.c p9.c
+EXEC = p9
 DEBUGGER = lldb
 
 all:

@@ -1,3 +1,3 @@
 #pragma once
 
-int my_htoi(const char *s const);
+int my_htoi(const char * const s);
