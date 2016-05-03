@@ -1,4 +1,4 @@
-# C gotchas
+# C Refresher
 
 ## Strings
 
@@ -14,3 +14,10 @@ char *s1 = "This cannot be modified";
 ```c
 char s2[] = "This can be modified";
 ```
+
+# Resources
+* http://c-faq.com/index.html
+* ftp://ftp.idsoftware.com/idstuff/ (learn to code by reading code...now that's a novel idea eh!)
+* Expert C programming: Deep C secrets (humorous and deep)
+* K & R C (classic)
+* http://c.learncodethehardway.org/book/ (opinionated and encourages lots of good practices)
