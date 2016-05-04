@@ -10,10 +10,10 @@ See at [P1](P1)
 Design an algorithm to remove a specified char from an array. No extra buffer may be used.
 
 # TODO P3 - Removing duplicates from an array
-Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer. 
+Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer.
 > NOTE: One or two additional variables are fine. An extra copy of the array is not.
 
-# P4 - Counting specific chars 
+# P4 - Counting specific chars
 Write a program that takes an input from user and counts blanks, tabs and newlines.
 
 # P5 - Write your own version of wc (K&R C 1.5.4)
@@ -31,7 +31,7 @@ Write it from scratch.
 
 # P8 - Write a pseudorandom number generator - (K&R 2.7)
 
-# TODO P9 - Write htoi() - (K&R ex2.3)
+# P9 - Write htoi() - (K&R ex2.3)
 
 # TODO P? - Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
 
