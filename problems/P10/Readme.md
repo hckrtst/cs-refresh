@@ -34,7 +34,36 @@ Interestingly enough, the openbsd implementation of `strcat()` comes with a ster
 __warn_references(strcat,
     "warning: strcat() is almost always misused, please use strlcat()");
 #endif
+
 ``````
+
+Here is an example of the stack getting smashed when we overflow the buffer. Check the `argc` and `argv`.
+```
+(lldb) print mystr
+(char *) $1 = 0x6d6c6b6a69686766 ""
+(lldb) print mystr2
+(char [5]) $2 = "abcdefghijklmnopqrstuvwxyzsdjskdjdkjdksdjskdjdksjdksjdskdjskdjskjskdjskdjskjskjskjd"
+(lldb) s
+Output = abcdefghijklmnopqrstuvwxyzsdjskdjdkjdksdjskdjdksjdksjdskdjskdjskjskdjskdjskjskjskjd
+Process 12150 stopped
+* thread #1: tid = 12150, 0x0000000000400637 p10`main(argc=2037938038, argv=0x7574737271706f6e) + 199 at p10.c:46, name = 'p10', stop reason = step in
+    frame #0: 0x0000000000400637 p10`main(argc=2037938038, argv=0x7574737271706f6e) + 199 at p10.c:46
+   43
+   44
+   45
+-> 46        return 0;
+   47    }
+(lldb) s
+Process 12150 stopped
+* thread #1: tid = 12150, 0x0000000000400641 p10`main(argc=<unavailable>, argv=<unavailable>) + 209 at p10.c:46, name = 'p10', stop reason = signal SIGSEGV: invalid address (fault address: 0x0)
+    frame #0: 0x0000000000400641 p10`main(argc=<unavailable>, argv=<unavailable>) + 209 at p10.c:46
+   43
+   44
+   45
+-> 46        return 0;
+   47    }
+
+```
 
 # Bonus
 Let's also write `strlcat()`
