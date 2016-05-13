@@ -9,9 +9,7 @@ See at [P1](P1)
 # P2 - Removing specified characters from a given array (K&R sec 2.8)
 Design an algorithm to remove a specified char from an array. No extra buffer may be used.
 
-# TODO P3 - Removing duplicates from an array
-Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer. (K&R ex:2.4)
-> NOTE: One or two additional variables are fine. An extra copy of the array is not.
+# TODO P3 - Write the function any(s1,s2) , which returns the first location in the string s1 where any character from the string s2 occurs, or -1 if s1 contains no characters from s2 . (The standard library function strpbrk does the same job but returns a pointer to the location.)
 
 # P4 - Counting specific chars
 Write a program that takes an input from user and counts blanks, tabs and newlines.
