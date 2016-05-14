@@ -9,7 +9,7 @@ See at [P1](P1)
 # P2 - Removing specified characters from a given array (K&R sec 2.8)
 Design an algorithm to remove a specified char from an array. No extra buffer may be used.
 
-# TODO P3 - Write the function any(s1,s2) , which returns the first location in the string s1 where any character from the string s2 occurs, or -1 if s1 contains no characters from s2 . (The standard library function strpbrk does the same job but returns a pointer to the location.)
+# P3- Write an alternate version of squeeze(s1,s2) that deletes each character in the string s1 that matches any character in the string s2. 
 
 # P4 - Counting specific chars
 Write a program that takes an input from user and counts blanks, tabs and newlines.
