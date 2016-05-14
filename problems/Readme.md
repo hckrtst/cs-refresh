@@ -31,10 +31,15 @@ Write it from scratch.
 
 # P9 - Write htoi() - (K&R ex2.3)
 
-# TODO P10 - Write a clone of `strcat()`
+# P10 - Write a clone of `strcat()`
+
+# P11 - Write a function `any(s1,s2)` which returns first location in string s1 where any char from s2 occurs, or -1 if s1 contains no chars from s1 (clone of `strpbrk()`) (K&R ex:2.5)
+
+# P12 - Write a function setbits(x,p,n,y) that returns x with the n bits that begin at position p set to the rightmost n bits of y, leaving the other bits unchanged.
+
+# P13 - Function getbits(x,p,n) that returns the right-adjusted n-bit field of x that begins at position p  
 
 # TODO P? - Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
-
 # TODO P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
-
-# TODO P? - Write a function `any(s1,s2)` which returns first location in string s1 where any char from s2 occurs, or -1 if s1 contains no chars from s1 (clone of `strpbrk()`) (K&R ex:2.5)
+# Reference
+* [BSD source](http://cvsweb.openbsd.org/cgi-bin/cvsweb/src/#dirlist)
