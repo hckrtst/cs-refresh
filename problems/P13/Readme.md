@@ -7,9 +7,5 @@
 * position 0 is at right end and n and p are sensible +ve values
 
 # Logic
-```
-if input is 10001101101
-
-
-```
+![](https://raw.githubusercontent.com/hckrtst/cs-refresh/master/problems/P13/P13.jpg)
 
