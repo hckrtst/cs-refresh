@@ -43,3 +43,4 @@ Write it from scratch.
 # TODO P? - Write a linked list ([http://c.learncodethehardway.org/book/ex33.html](http://c.learncodethehardway.org/book/ex33.html))
 # Reference
 * [BSD source](http://cvsweb.openbsd.org/cgi-bin/cvsweb/src/#dirlist)
+* [Snippets of code](http://stjarnhimlen.se/snippets/index.html)
