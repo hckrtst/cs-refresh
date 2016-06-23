@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/tintin/workspace/TICPP"
 		}
 	]
 }

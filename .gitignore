@@ -6,4 +6,5 @@ out/
 .idea/
 desktop.ini
 *.iml
-*sublime-workspace
+*.sublime-project
+*.sublime-workspace

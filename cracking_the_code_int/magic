@@ -1,0 +1,97 @@
+#!/usr/bin/python
+import sys, os
+
+'''
+A lazy man's cmake
+'''
+
+def usage():
+   print("Please enter:\nmagic <dir_name>")
+
+def add_src():
+  content = '''\
+#include <iostream>
+using namespace std;
+
+int main() {
+   return 0;
+} '''
+
+  fh = open('main.cpp', "w")
+  fh.writelines(content)
+  fh.close()
+
+def add_makefile():
+    content = '''\
+C = clang++
+CFLAGS = -g
+SRC = main.cpp
+EXEC = example
+DEBUGGER = lldb
+WARN = -Wall
+LIBS = -lstdc++
+
+all:
+\tmake build
+\tmake run
+
+ifndef V
+.SILENT:
+endif
+
+build:
+\tmkdir -p bin
+\t$(CC) $(CFLAGS) $(WARN) $(LIBS) -o bin/$(EXEC) $(SRC)
+
+run:
+\tbin/$(EXEC)
+
+dbg:
+\t$(DEBUGGER) -f bin/$(EXEC)
+'''
+    fh = open('Makefile', "w")
+    # template = ("CFLAGS = -Wall -g\n",
+    # "CC=clang\n",
+    # "clean:\n",
+    # "\trm -f %s\n" % module)
+    fh.writelines(content)
+    fh.close()
+
+def add_readme():
+    print('h1');
+    content = '''\
+#Problem
+
+#Constraints
+
+#Notes
+
+#Psuedocode
+
+#Code
+'''
+    fh = open('Readme.md', "w")
+    fh.writelines(content)
+    fh.close()
+
+def make_dir(args):
+   try:
+      work_dir = args[1]
+      if (os.path.isdir(work_dir)):
+         print("Warning: Directory already exists, do doing nothing")
+         return
+      else:
+         os.mkdir(work_dir)
+         os.chdir(work_dir)
+         add_makefile()
+         add_src()
+         add_readme()
+
+   except IndexError as why:
+      print("Index error: {0}".format(why))
+      usage()
+   except OSError as why:
+      print("OS error: {0}".format(why))
+
+if __name__ == '__main__':
+   make_dir(sys.argv)
