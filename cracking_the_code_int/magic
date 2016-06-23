@@ -62,13 +62,16 @@ def add_readme():
     content = '''\
 #Problem
 
-#Constraints
-
 #Notes
 
-#Psuedocode
+##Constraints and Assumptions
 
-#Code
+##Examples
+
+#Pseudocode
+
+#Postmortem
+
 '''
     fh = open('Readme.md', "w")
     fh.writelines(content)
