@@ -1,8 +1,12 @@
 #include <iostream>
+#include <cstring>
+#include <cstdio>
+
 using namespace std;
 
 class Solver {
-   int str1Cnt[26] = {};
+   // initialize arrays to 0
+   int str1Cnt[26] = {0};
    int str2Cnt[26] = {};
    string s1, s2;
    static int getIndex(const char c);
@@ -10,23 +14,31 @@ class Solver {
       ar[index] += 1;
    }
    static void dumpArray(int a[], size_t sz) {
-      string s;
+      //string s;
+      printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");  
       for (int i = 0; i < int(sz); i++) {
-         s.append(to_string(a[i]));
-         s.append(",");
+         printf("%d(%d), ", i,a[i]);
+         //s.append(to_string(a[i]));
+         //s.append(",");
       }
-      cout << s << endl;
+      printf("\n");
+      //cout << s << endl;
+      printf("------------------------------------------------------------\n");
+   }
+   static bool isEqual(int a1[], int a2[], size_t sz) {
+      for (int i = 0; i < sz; i++) {
+         if (a1[i] != a2[i]) return false;
+      }
+      return true;
    }
    class BadInput {};
    Solver() {}
 public:
    bool isAnagram() throw(BadInput);
-   Solver(string s1, string s2):s1(s1), s2(s2) {
+   Solver(string s1, string s2):s1(s1), s2(s2){
       cout << "ctor" << endl;
-
-      dumpArray(str1Cnt, sizeof(str1Cnt));  
-      dumpArray(str2Cnt, sizeof(str2Cnt));  
-
+      dumpArray(str1Cnt, sizeof(str1Cnt)/sizeof(str1Cnt[0]));  
+      dumpArray(str2Cnt, sizeof(str2Cnt)/sizeof(str2Cnt[0]));  
    }
 };
 
@@ -63,14 +75,20 @@ bool Solver::isAnagram() throw(BadInput){
       iter++;
    }
 
-   dumpArray(str1Cnt, sizeof(str1Cnt));  
-   dumpArray(str2Cnt, sizeof(str2Cnt));  
-   return false;
+   dumpArray(str1Cnt, sizeof(str1Cnt)/sizeof(str1Cnt[0]));  
+   dumpArray(str2Cnt, sizeof(str2Cnt)/sizeof(str2Cnt[0]));
+
+   return isEqual(str1Cnt, str2Cnt, sizeof(str1Cnt)/sizeof(str1Cnt[0]));
 }
 
 int main() {
-   Solver s("abcd", "cdbA");
+   Solver s("abcd", "cdba");
    if (s.isAnagram()) {
+      cout << "We have anagrams!" << endl;
+   }
+   
+   Solver s2("axcdf", "xcderf");
+   if (s2.isAnagram()) {
       cout << "We have anagrams!" << endl;
    }
    return 0;
