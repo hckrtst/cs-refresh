@@ -48,7 +48,7 @@ class List {
       if (cur == *head) {
          *head = cur->next;
       } else {
-         prev = cur->next;
+         prev->next = cur->next;
       }
       delete cur;
    }
@@ -75,11 +75,12 @@ public:
 
    void dump() {
       Node* n = head;
+      printf("******* dump ******\n");
       while(n != NULL) {
          Node::printNode(n); 
          n = n->next;
       }
-      printf("\n");
+      printf("*******************\n");
       //std::cout << std::endl;
    }
 
@@ -116,9 +117,28 @@ public:
          // if it exists in set then we want to delete
          // the current one
          if (vals.find(cur->data) != vals.end()) {
-            deleteNode(&head, prev, cur);   
+            deleteNode(&head, prev, cur);
+            printf("deleted %d\n", cur->data);
          } else {
-            vals.insert(cur->data);
+            vals.insert(cur->data);\
+            printf("Inserted %d\n", cur->data);
+         }
+         prev = cur;
+         cur = cur->next;
+      }
+   }
+
+   void removeAllDupsV3() {
+      Node *cur = head;
+      Node *prev = cur;
+      while (cur != NULL) {
+         Node *tmp = head;
+         while (tmp != cur) {
+            if (tmp->data == cur->data) {
+               deleteNode(&head, prev, cur);
+               break;
+            }
+            tmp = tmp->next;
          }
          prev = cur;
          cur = cur->next;
@@ -148,6 +168,21 @@ int main() {
    list.insert(11);
    list.insert(5);
 
+   printf("\n\nTest V1\n\n");
+   list.dump();
+   list.removeAllDupsV1();
+   list.dump();
+   
+
+   printf("\n\nTest V3\n\n");
+   list.insert(5);
+   list.insert(20);
+   list.insert(120);
+   list.insert(2220);
+   list.insert(13);
+
+   list.dump();
+   list.removeAllDupsV3();
    list.dump();
    list.purge();
    //list.removeAll(20);
