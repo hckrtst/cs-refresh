@@ -83,3 +83,8 @@ endfn
 ```
 #Postmortem
 
+* Recall that `struct`s are Plain Old Datatypes (POD's) until you give it a constructor
+* For crying out loud...**ALWAYS INITIALIZE pointers to NULL!!!!**
+
+
+
