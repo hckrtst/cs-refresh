@@ -150,7 +150,8 @@ int main() {
 
    list.dump();
 
-   list.remNthToLast(2);
+   list.remNthToLast(3);
+   list.remNthToLast(9);
 
    list.dump();
    list.purge();

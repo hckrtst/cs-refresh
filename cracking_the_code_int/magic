@@ -58,7 +58,6 @@ dbg:
     fh.close()
 
 def add_readme():
-    print('h1');
     content = '''\
 #Problem
 

@@ -11,7 +11,6 @@ the previous pointer
 
 
 ##Examples
-
 1. Normal case 
 
 ```
@@ -34,7 +33,7 @@ We should bail out gracefully
 p1 = head
 p2 = p1
 count = n
-while(count-- > 0) {
+while(count-- >= 0) {
    p2 = p2->next
 }
 
@@ -47,4 +46,5 @@ delNode(&head, p1, p1->next)
 
 ```
 #Postmortem
-
+* **Always check for NULL pointers when doing list traversals**
+* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper* It's useful to visualize a LL on paper
