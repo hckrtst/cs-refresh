@@ -5,6 +5,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+
 namespace sk {
 
 struct node {
@@ -14,8 +15,9 @@ struct node {
 
 class Tree{
    node *root;
-   int get_max_depth();
-   int get_min_depth();
+   //void traverse(node *r);
+   int get_max_depth(node *n);
+   int get_min_depth(node *n);
    node *alloc_node(int data);
    void print_inorder(node *r);
    void clear_postorder(node *r);
@@ -34,7 +36,10 @@ public:
       root = nullptr;
 
    }
-   bool is_balanced();
+   bool is_balanced() {
+      if ((get_max_depth(root) - get_min_depth(root)) <= 1) return true;
+      return false;
+   }
 
 };//end Tree
 
@@ -83,6 +88,22 @@ void Tree::print_inorder(node *r) {
 
 }
 
+// void Tree::traverse(node* r) {
+//    if (r == nullptr) return;
+//    traverse(r->left);
+
+// }
+
+int Tree::get_min_depth(node *n) {
+   if (n == nullptr) return 0;
+   return (1 + std::min(get_min_depth(n->left), get_min_depth(n->right)));
+}
+
+int Tree::get_max_depth(node *n) {
+   if (n == nullptr) return 0;
+   return (1 + std::max(get_max_depth(n->left), get_max_depth(n->right)));
+}
+
 };// end namespace
 
 
@@ -124,6 +145,12 @@ void run() {
          tree.print();
       } else if (cmd == "clr") {
          tree.clear();
+      } else if (cmd == "isbal") {
+         if (tree.is_balanced()) {
+            cout << "balanced" << endl;
+         } else {
+            cout << "not balanced" << endl;
+         }
       }
    }
 }
