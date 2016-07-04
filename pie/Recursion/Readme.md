@@ -21,3 +21,37 @@ void print_tel_word(cur_digit, nums[], result) {
 ```
 
 # Non-recursive approach
+
+Example:
+if we have a 3 digit number each digit can have A/B/C, D/E/F, X/Y/Z respectively
+then we would have the following permutations:
+
+```
+ADX
+ADY
+ADZ
+AEX
+AEY
+AEZ
+AFX
+AFY
+AFZ
+BDX
+...
+```
+
+We can observe that we rotate each place in the sequence and when it reaches the end we also increment the next place by 1.
+
+```
+print_tel_word(nums[]) {
+   char res[MAX_LENGTH] = {0}
+   for (i = 0; i < sizeof(nums); i++) {
+      print(get_char(nums[i], 1))
+   }
+   while (true) {
+      for (i = sizeof(nums) - 1; i > -1; i--) {
+         if (res[i] == get_char())
+      }
+   }
+}
+```
