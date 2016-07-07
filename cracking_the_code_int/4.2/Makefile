@@ -1,6 +1,6 @@
 C = clang++
 CFLAGS = -g
-SRC = main.cpp
+SRC = Graph.cpp main.cpp
 EXEC = example
 DEBUGGER = lldb
 WARN = -Wall

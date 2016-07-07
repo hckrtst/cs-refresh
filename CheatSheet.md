@@ -11,7 +11,9 @@ TODO
 TODO
 
 ##Graph
-
+* Edges can be represented by adjacency list or matrix
+   * Matix is O(1) for access but wastes space since mostly 0's
+   * A list is more space efficient but slower to search
 
 #Algorithms
 
@@ -32,8 +34,11 @@ Worst case: O(n^2)
 bubble_sort(vector<T> data) {
    swapped = false
    do {
-      for (i = 0; i < i.data; i++) {
-
+      for (i = 1; i < i.data; i++) {
+         if (data[i] < data[i-1]) {
+            swap(i-1, i)
+            swapped = true
+         }
       }
    }
    } while(swapped)
