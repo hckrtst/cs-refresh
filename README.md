@@ -5,3 +5,4 @@ A loose collection of useful resources when prepping for tech interviews.
 * https://github.com/h5bp/Front-end-Developer-Interview-Questions
 * [OpenBSD source](http://cvsweb.openbsd.org/cgi-bin/cvsweb/src/)
 * [Martin Broadhurst's articles](http://www.martinbroadhurst.com/index.html)
+* [Data Structures and Algorithms](http://interactivepython.org/runestone/static/pythonds/index.html)

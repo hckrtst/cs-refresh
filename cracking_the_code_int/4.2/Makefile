@@ -5,6 +5,7 @@ EXEC = example
 DEBUGGER = lldb
 WARN = -Wall
 LIBS = -lstdc++
+STD=-std=c++14
 
 all:
 	make build
@@ -16,7 +17,7 @@ endif
 
 build:
 	mkdir -p bin
-	$(CC) $(CFLAGS) $(WARN) $(LIBS) -o bin/$(EXEC) $(SRC)
+	$(CC) $(CFLAGS) $(WARN) $(STD) $(LIBS) -o bin/$(EXEC) $(SRC)
 
 run:
 	bin/$(EXEC)

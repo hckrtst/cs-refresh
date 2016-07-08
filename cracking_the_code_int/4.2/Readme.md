@@ -36,3 +36,5 @@ class Graph {
 
 # References
 * https://ece.uwaterloo.ca/~cmoreno/ece250/2012-03-26--graphs-implementation.pdf
+* http://theory.stanford.edu/~amitp/GameProgramming/
+* http://interactivepython.org/runestone/static/pythonds/Graphs/Objectives.html

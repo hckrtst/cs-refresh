@@ -30,6 +30,7 @@ EXEC = example
 DEBUGGER = lldb
 WARN = -Wall
 LIBS = -lstdc++
+STD=-std=c++14
 
 all:
 \tmake build
@@ -41,7 +42,7 @@ endif
 
 build:
 \tmkdir -p bin
-\t$(CC) $(CFLAGS) $(WARN) $(LIBS) -o bin/$(EXEC) $(SRC)
+\t$(CC) $(CFLAGS) $(WARN) $(STD) $(LIBS) -o bin/$(EXEC) $(SRC)
 
 run:
 \tbin/$(EXEC)
