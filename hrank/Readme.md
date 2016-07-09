@@ -1,4 +1,9 @@
-#
+# Warmup
+
+## Diagonal diff
+https://www.hackerrank.com/challenges/diagonal-difference
+
+
 
 # Trees
 
