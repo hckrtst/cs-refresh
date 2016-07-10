@@ -3,7 +3,11 @@
 ## Diagonal diff
 https://www.hackerrank.com/challenges/diagonal-difference
 
-
+## Plus minus
+> Remeber that when dividing ints and wanting the float 
+> result , we should cast numerator and denominator as
+> floats separately so that the decimal places are 
+> reserved correctly! 
 
 # Trees
 
