@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdio>
+using std::cin;
+using std::cout;
 
 //private
 static int partition(int * ar, int sz, int first, int last);
@@ -86,8 +88,19 @@ void show(int *ar, int sz) {
 
 int main() {
 
-   int a[] = {23, 6, 45, 21, 8, 9, 12};
-   quick_sort(a, sizeof(a)/sizeof(a[0]));
-
+   //int a[] = {23, 6, 45, 21, 8, 9, 12};
+   int sz;
+   cout <<"Size of array? ";
+   cin >> sz;
+   cout << "Space separated values? ";
+   int a[sz] = {};
+   for (int i = 0; i < sz; i++) {
+      cin >> a[i];
+   }
+   if (sz == 1) {
+      cout << a[0] << std::endl;
+   } else {
+      quick_sort(a, sizeof(a)/sizeof(a[0]));
+   }
    return 0;
 } 
