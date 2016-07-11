@@ -49,12 +49,20 @@ bubble_sort(vector<T> data) {
 
 ##Concurrency
 
-
 ##Livelock
 
 ##Deadlock
 
 ##Starvation
+
+##Dining Philosophers
+* Ad hoc
+Let first philosopher try to pick up the forks in the opposite order to break
+the cycle
+* Chandy Misra
+[TODO]
+* Waiter approach
+[TODO]
 
 ##References
 * [examples](pie/Concurrency)
