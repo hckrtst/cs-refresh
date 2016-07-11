@@ -46,3 +46,17 @@ bubble_sort(vector<T> data) {
 ```
 
 ##Searching
+
+##Concurrency
+
+
+##Livelock
+
+##Deadlock
+
+##Starvation
+
+##References
+* [examples](pie/Concurrency)
+* http://homes.cs.washington.edu/~arvind/cs422/lectureNotes/deadlock-6.pdf
+* https://www.cs.princeton.edu/courses/archive/fall11/cos318/lectures/L9_Deadlocks.pdf

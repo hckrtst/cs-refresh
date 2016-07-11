@@ -5,7 +5,7 @@ using std::cout;
 
 //private
 static int partition(int * ar, int sz, int first, int last);
-static void quick_sort_r(int *ar, int sz, int first, int last); 
+static void quick_sort_r(int *ar, int sz, int first, int last);
 static void swap(int *a, int *b);
 static void show(int* ar, int sz);
 
@@ -23,17 +23,17 @@ int partition(int * ar, int sz, int first, int last) {
    int left = first + 1;
    int right = last;
    while (true) {
-      // advance left if value already 
+      // advance left if value already
       // smaller than pivot
-      while ((left <= right) && 
-                  (ar[left] <= pivot_val)) 
+      while ((left <= right) &&
+                  (ar[left] <= pivot_val))
          left = left + 1;
       // decrement right right if value
       // already larger than pivot
-      while ((right >= left) && 
-                  (ar[right] >= pivot_val)) 
+      while ((right >= left) &&
+                  (ar[right] >= pivot_val))
          right = right - 1;
-      
+
       // once right has crossed over left
       // or vice versa then we can stop
       // and swap with pivot and return
@@ -41,7 +41,7 @@ int partition(int * ar, int sz, int first, int last) {
       if (left > right) break;
 
       // else we continue swapping left and right
-      // values so they are on the correct side of the 
+      // values so they are on the correct side of the
       // future partition
       swap(&ar[left], &ar[right]);
       printf("swapped %d and %d\n", ar[left], ar[right]);
@@ -53,7 +53,7 @@ int partition(int * ar, int sz, int first, int last) {
    swap(&ar[first], &ar[right]);
    printf("positioned pivot\n");
    show(ar, sz);
-   return right; 
+   return right;
 }
 
 void quick_sort(int * ar, int sz) {
@@ -75,7 +75,7 @@ void quick_sort_r(int *ar, int sz, int first, int last) {
 void swap(int *a, int *b) {
    int tmp = *a;
    *a = *b;
-   *b = tmp; 
+   *b = tmp;
 }
 
 void show(int *ar, int sz) {
@@ -93,7 +93,9 @@ int main() {
    cout <<"Size of array? ";
    cin >> sz;
    cout << "Space separated values? ";
-   int a[sz] = {};
+   // Note: Apple's clang does not like this initialization :'(
+   //int a[sz] = {};
+   int a[sz];
    for (int i = 0; i < sz; i++) {
       cin >> a[i];
    }
@@ -103,4 +105,4 @@ int main() {
       quick_sort(a, sizeof(a)/sizeof(a[0]));
    }
    return 0;
-} 
+}
