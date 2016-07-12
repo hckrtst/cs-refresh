@@ -210,6 +210,7 @@ int Tree::find_inorder_succ(int target) {
       if (n->right != nullptr) {
          n = n->right;
          while (n->left != nullptr) n = n->left;
+         //cout << "case: has right subtree" << endl;
          return n->data;
       }
 
@@ -220,6 +221,7 @@ int Tree::find_inorder_succ(int target) {
       if (n->parent != nullptr) {
          n = n->parent;
          while ((n->parent != nullptr) && (n->data < target)) n = n->parent;
+         //cout << "case: no right subtree" << endl;
          if ((n != nullptr) && (n->data >= target)) return n->data;
       }
    }
@@ -237,18 +239,12 @@ int main() {
    tree.insert_balanced(ar, length);
    tree.print();
    cout << "Height = " << tree.get_height() << endl;
-   int t = 11;
-   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
 
-   t = 2;
-   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
+   for (int i = 0; i < length; i++) {
+      cout << "Succ of " << ar[i] << " is " << tree.find_inorder_succ(ar[i]) << endl;
+   }
 
-
-   t = 5;
-   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
-
-
-   t = 22;
+   int t = 22;
    cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
 
    return 0;
