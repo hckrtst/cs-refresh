@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
-#include<vector>
+#include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -173,8 +174,57 @@ int Tree::get_max_depth(node *n) {
    return (1 + std::max(get_max_depth(n->left), get_max_depth(n->right)));
 }
 
-int Tree::find_inorder_succ(int n) {
 
+int Tree::find_inorder_succ(int target) {
+   if (root == nullptr) return -1;
+
+   stack<node*> s;
+   s.push(root);
+   node *n = nullptr;
+   // first locate the node of interest
+   while (!s.empty()) {
+      node *tmp;
+      // use iterative pre-order traversal
+
+      // process current node
+      if (s.top()->data == target) {
+         //cout << "Found " << target << endl;
+         n = s.top();
+         break;
+      }
+
+      tmp = s.top();
+      s.pop();
+      //cout << "Processing " << tmp->data << endl;
+
+      // push right child
+      if (tmp->right) s.push(tmp->right);
+      // push left child
+      if (tmp->left) s.push(tmp->left);
+   }
+
+   if (n != nullptr) {
+      // if target has right subtree then look for the smallest
+      // node in this subtree, which is the left most node in the
+      // subtree
+      if (n->right != nullptr) {
+         n = n->right;
+         while (n->left != nullptr) n = n->left;
+         return n->data;
+      }
+
+      // if target has no subtree then the next successor will be
+      // an ancestor
+      // We can use the value of the nodes to find the smallest
+      // ancestor which is larger than target
+      if (n->parent != nullptr) {
+         n = n->parent;
+         while ((n->parent != nullptr) && (n->data < target)) n = n->parent;
+         if ((n != nullptr) && (n->data >= target)) return n->data;
+      }
+   }
+
+   return -1;
 }
 
 };// end namespace
@@ -187,8 +237,19 @@ int main() {
    tree.insert_balanced(ar, length);
    tree.print();
    cout << "Height = " << tree.get_height() << endl;
+   int t = 11;
+   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
+
+   t = 2;
+   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
 
 
+   t = 5;
+   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
+
+
+   t = 22;
+   cout << "Succ of " << t << " is " << tree.find_inorder_succ(t) << endl;
 
    return 0;
 }
