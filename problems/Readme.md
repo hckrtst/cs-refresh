@@ -41,6 +41,8 @@ Write it from scratch.
 
 # P14 - Write a function `bitcount(unsigned x)` which counts the number of 1's in an integer (K&R sec 2.10)
 
+#P15 - Given a 2d array, return all sets of indices where the values are exactly the same
+
 
 # TODO's
 

@@ -1,5 +1,5 @@
 # cs-refresh
-A loose collection of useful resources when prepping for tech interviews.
+A loose collection of useful resources
 
 # General resources
 * https://github.com/h5bp/Front-end-Developer-Interview-Questions
