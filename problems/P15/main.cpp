@@ -27,11 +27,16 @@ int main() {
 
    for (int r=0; r<4; r++) {
       vector<int> same;
+
       for (int j=0; j<5; j++) {
+         bool found = false;
          //cout << "col=" << j << endl;
          for (int i=r; i < 5; i++) {
             //cout << a[i][j] << " ";
             if (a[r][j] == a[i][j]) same.push_back(a[i][j]);
+            else {
+               break;
+            }
          }
          cout << endl;
       }
