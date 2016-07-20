@@ -64,6 +64,9 @@ the cycle
 * Waiter approach
 [TODO]
 
+# C++ template programming
+
+
 ##References
 * [examples](pie/Concurrency)
 * http://homes.cs.washington.edu/~arvind/cs422/lectureNotes/deadlock-6.pdf
