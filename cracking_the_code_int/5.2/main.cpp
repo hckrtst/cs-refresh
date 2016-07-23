@@ -58,5 +58,6 @@ int main() {
     solve("32");
     solve("0000012.345");
     solve("hello");
+    solve("00000.0000000");
     return 0;
 }
