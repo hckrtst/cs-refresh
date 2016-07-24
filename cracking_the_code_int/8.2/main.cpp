@@ -7,8 +7,6 @@ using namespace std;
 
 class Game {
 public:
-   /*void print_array() {
-   }*/
    enum dir_e {RIGHT, DOWN};
    struct pos_e{int x,y;};
    void run() {
@@ -49,16 +47,9 @@ private:
    }
 
    void step(vector<pos_e> path, dir_e dir, pos_e pos) {
-      //printf("%s(%d,%d) ", (dir == RIGHT)?"R":"D", pos.x, pos.y);
-      //string p = "(" + to_string(pos.x) + "," + to_string(pos.y) + ")";
-      //path.push_back(p);
       path.push_back(pos);
-      //map[pos.x][pos.y] = '*';
       if ((pos.x == 3) && (pos.y == 5)) {
-         /*for (auto e: path) {
-            cout << e;
-         }
-         cout << endl;*/
+
          printMap(path);
          printf("=======================================\n");
          resetMap();
@@ -66,7 +57,6 @@ private:
       }
 
       if (!outOfBound({pos.x+1, pos.y})) {
-         //printf("from:{%d,%d} -> ", pos.x, pos.y);
          step(path, DOWN, {pos.x+1, pos.y});
       }
       if (!outOfBound({pos.x, pos.y+1})) {
