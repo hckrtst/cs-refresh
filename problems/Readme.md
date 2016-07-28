@@ -43,8 +43,9 @@ Write it from scratch.
 
 #P15 - Given a 2d array, return all sets of indices where the values are exactly the same
 
-
 # TODO's
+
+Implement a queue with two stacks
 
 Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
 

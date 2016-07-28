@@ -1,5 +1,36 @@
 #CheatSheet
 
+# Containers
+
+## vector
+* Like array, contiguous chunk of memory
+* fast access, insert at end O(1), but insert in middle inefficient
+* resizing is not efficient as new chuink of memory allocated and contents copied
+* beware of **iterator invalidation** when insertion causes resize (see TICPP v2 pg.463)
+* Most eficient if you :
+   * `reserve()` the correct amount of storage upfront to avoid reallocations
+   *  you only add/remove elements front/back
+
+## deque (pronounced "deck")
+* O(1) for insert/delete at either end
+* accessing elements O(?)
+* No issues of reallocation like vector
+* Each element stored in a separate chunk
+
+> Note
+> ---
+> Using `[]` is intuitive but using `at()` allows you to handle exception as it does bounds checking
+
+### Resource
+* http://www.codeproject.com/Articles/5425/An-In-Depth-Study-of-the-STL-Deque-Container
+
+## list
+* implemented as a doubly linked list
+* designed for rapid insertion and deletion from anywhere
+* slow when randomly accessing elements of container
+* best used when traversing sequence in order
+* some memory overhead of forward and backward pointer
+* `merge()` can be used to build a bigger list but is typically effective if both lists sorted (?)
 # Data Structures
 ## Tree
 * For non-recursive trversals can use a stack to keep track
@@ -10,6 +41,8 @@ TODO
 ## Trie
 TODO
 
+### Resource
+* [Cheatsheet on selecting STL containers](http://stackoverflow.com/a/471461)
 ##Graph
 * Edges can be represented by adjacency list or matrix
    * Matix is O(1) for access but wastes space since mostly 0's
