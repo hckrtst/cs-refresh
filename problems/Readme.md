@@ -45,7 +45,12 @@ Write it from scratch.
 
 # TODO's
 
-Implement a queue with two stacks
+Implement a queue with two stacks.
+
+Implement a "ring" data structure.
+
+STL stack is typically composed of other generic containers. Build a stack using deque. vector adnd list respectively.
+example using linked list [here](http://codereview.stackexchange.com/a/51802).
 
 Implement strstr() to Find a Substring in a String - [http://articles.leetcode.com/implement-strstr-to-find-substring-in/](http://articles.leetcode.com/implement-strstr-to-find-substring-in/)
 

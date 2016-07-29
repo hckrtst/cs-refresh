@@ -31,6 +31,15 @@
 * best used when traversing sequence in order
 * some memory overhead of forward and backward pointer
 * `merge()` can be used to build a bigger list but is typically effective if both lists sorted (?)
+
+## priority queue
+* implemented as a [heap](http://interactivepython.org/runestone/static/pythonds/Trees/PriorityQueueswithBinaryHeaps.html)
+* A curious C-based implementation [here](http://robin-thomas.github.io/max-heap/). Although beware of the cowboy pointer arithmetic
+and lack of allocation failure checks.
+
+## map
+* Usually implemented as red-black trees
+
 # Data Structures
 ## Tree
 * For non-recursive trversals can use a stack to keep track
