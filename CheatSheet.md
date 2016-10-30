@@ -106,10 +106,23 @@ the cycle
 * Waiter approach
 [TODO]
 
+
 # C++ template programming
+
+# OOP Concepts
+
+## Mixins
+Units of functionality are created in a class and "mixed in" with other classes.
+
+```python
+# This class now includes the ability to fork threads per request
+class ThreadingTCPServer(ThreadingMixIn, TCPServer):
+  pass
+```
 
 
 ##References
 * [examples](pie/Concurrency)
 * http://homes.cs.washington.edu/~arvind/cs422/lectureNotes/deadlock-6.pdf
 * https://www.cs.princeton.edu/courses/archive/fall11/cos318/lectures/L9_Deadlocks.pdf
+
