@@ -10,3 +10,4 @@ A loose collection of useful resources
 
 # Enlightening Experiments
 * https://speakerdeck.com/nineties/creating-a-language-using-only-assembly-language
+* [Peter Norvig's advent of code solutions](http://nbviewer.jupyter.org/url/norvig.com/ipython/Advent%20of%20Code.ipynb)
