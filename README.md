@@ -12,3 +12,4 @@ A loose collection of useful resources
 # Enlightening Experiments
 * https://speakerdeck.com/nineties/creating-a-language-using-only-assembly-language
 * [Peter Norvig's advent of code solutions](http://nbviewer.jupyter.org/url/norvig.com/ipython/Advent%20of%20Code.ipynb)
+* [Rootkit internals](https://d0hnuts.com/2016/12/21/basics-of-making-a-rootkit-from-syscall-to-hook/)
