@@ -119,7 +119,17 @@ Units of functionality are created in a class and "mixed in" with other classes.
 class ThreadingTCPServer(ThreadingMixIn, TCPServer):
   pass
 ```
-
+# iOS related
+* How do you flatten an array that contains strings and arrays that either contain more arrays or strings or both?
+* The difference between using self.someProperty vs _someProperty
+* The use cases/differences between KVO/NSNotifications/Blocks/Delegates
+* Basic MVC
+* The difference between strong/weak/assign/copy
+* The difference between atomic/nonatomic
+* How to create an object graph given nested JSON data
+* What is method swizzling/can you give me a use case for it?
+* What are some advantages of Swift/Obj-C and what are some disadvantages?
+* What happens when you invoke a method on a nil pointer in Obj-C?
 
 ##References
 * [examples](pie/Concurrency)
